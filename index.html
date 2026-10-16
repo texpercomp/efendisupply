@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101b16">
+  <meta name="theme-color" content="#000000">
   <meta name="description" content="Efendi Supply çok yakında burada. Yeni alışveriş deneyimimiz için hazırlıklarımız sürüyor.">
   <title>Efendi Supply | Çok Yakında</title>
   <style>
@@ -48,34 +48,71 @@
     .price { font-size:15px; font-weight:800; color:var(--green); }
     .bottom-space { height:70px; }
 
-    .veil { position:fixed; inset:0; z-index:2; background:rgba(13,25,18,.48); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+    .veil { position:fixed; inset:0; z-index:2; background:rgba(0, 0, 0, 0.55); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
     .center-wrap { position:relative; z-index:3; min-height:100vh; display:grid; place-items:center; padding:28px 18px; }
+    
+    /* SADE, MİNİMAL VE MÜKEMMEL DENGELENMİŞ SİYAH KART */
     .notice {
-      width:min(100%, 540px); padding:48px 44px 38px; text-align:center; color:#fff;
-      background:rgba(18,37,27,.88); border:1px solid rgba(255,255,255,.19);
-      border-radius:26px; box-shadow:0 28px 90px rgba(0,0,0,.28);
-      backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+      width:min(100%, 460px); 
+      padding: 40px 32px 36px; 
+      text-align:center; 
+      color:#fff;
+      background: #050505; 
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius:28px; 
+      box-shadow:0 28px 90px rgba(0,0,0,.6);
+      backdrop-filter:blur(18px); 
+      -webkit-backdrop-filter:blur(18px);
       animation:appear .75s ease both;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .logo-mark { width:58px; height:58px; margin:0 auto 24px; display:grid; place-items:center; border-radius:18px; background:var(--lime); color:#172b1f; font-weight:950; font-size:25px; letter-spacing:-2px; transform:rotate(-4deg); }
-    .eyebrow { display:inline-flex; align-items:center; gap:9px; color:var(--lime); font-size:11px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; }
+    
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; color:var(--lime); font-size:11px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; margin-bottom: 6px; }
     .dot { width:7px; height:7px; background:var(--lime); border-radius:50%; box-shadow:0 0 0 5px rgba(215,243,106,.12); }
-    h1 { font-size:clamp(36px,7vw,58px); letter-spacing:-2.6px; line-height:1.02; margin:20px 0 16px; font-weight:850; }
+
+    /* VİDEO ALANI */
+    .video-box {
+      width: 100%;
+      max-width: 320px;
+      height: 380px;
+      margin: 10px 0 16px;
+      position: relative;
+      background: #000;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    h1 { 
+      font-size:clamp(32px,6vw,48px); 
+      letter-spacing:-2px; 
+      line-height:1.05; 
+      margin:12px 0 10px; 
+      font-weight:850;
+      transition: opacity 0.5s ease;
+    }
+
     h1 span { color:var(--lime); }
-    .desc { max-width:370px; margin:0 auto; color:rgba(255,255,255,.72); font-size:15px; line-height:1.75; }
-    .progress-label { margin:32px 0 10px; display:flex; justify-content:space-between; color:rgba(255,255,255,.62); font-size:11px; letter-spacing:.04em; }
-    .progress { height:4px; width:100%; border-radius:9px; background:rgba(255,255,255,.13); overflow:hidden; }
-    .progress span { display:block; width:68%; height:100%; border-radius:9px; background:var(--lime); }
-    .foot { border-top:1px solid rgba(255,255,255,.13); margin-top:30px; padding-top:20px; color:rgba(255,255,255,.5); font-size:11px; letter-spacing:.04em; }
-    .foot strong { color:rgba(255,255,255,.85); font-weight:600; }
+    .desc { max-width:340px; margin:0 auto; color:rgba(255,255,255,.72); font-size:14px; line-height:1.6; }
+    
     @keyframes appear { from { opacity:0; transform:translateY(12px) scale(.985); } to { opacity:1; transform:translateY(0) scale(1); } }
+    
     @media (max-width:700px) {
       .nav { height:68px; padding:0 5%; } .nav-links { display:none; } .hero { width:90%; padding:30px 7%; min-height:220px; }
       .hero-art { width:105px; height:105px; font-size:48px; flex-shrink:0; margin-left:12px; }
       .hero h2 { font-size:31px; } .hero p { font-size:12px; }
       .products { width:90%; grid-template-columns:repeat(2,1fr); gap:12px; }
       .product-art { height:110px; } .section-head { width:90%; }
-      .notice { padding:38px 25px 28px; border-radius:22px; } h1 { letter-spacing:-1.8px; }
+      .notice { padding:32px 20px; border-radius:24px; } 
+      .video-box { max-width: 280px; height: 330px; }
     }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation:none !important; } }
   </style>
@@ -104,14 +141,41 @@
   <div class="veil"></div>
   <main class="center-wrap">
     <section class="notice" aria-labelledby="page-title">
-      <div class="logo-mark">ES.</div>
+      
       <div class="eyebrow"><span class="dot"></span> YENİ BİR DENEYİM HAZIRLANIYOR</div>
+      
+      <!-- Orijinal Boyutlu Video -->
+      <div class="video-box">
+        <video autoplay loop muted playsinline>
+          <source src="1.mp4" type="video/mp4">
+          Tarayıcınız video etiketini desteklemiyor.
+        </video>
+      </div>
+
+      <!-- Türkçe / İngilizce Dönen Başlık -->
       <h1 id="page-title">Çok yakında<br><span>buradayız.</span></h1>
+
       <p class="desc">Efendi Supply için hazırlıklarımız devam ediyor.</p>
-      <div class="progress-label"><span>Hazırlık aşamasında</span><span>Yakında</span></div>
-      <div class="progress"><span></span></div>
-      <div class="foot"><strong>efendisupply.com</strong> <span> · </span> Yeni adresiniz, çok yakında.</div>
+
     </section>
   </main>
+
+  <script>
+    const titleElement = document.getElementById('page-title');
+    const titles = [
+      'Çok yakında<br><span>buradayız.</span>',
+      'WE ARE<br><span>COMING SOON.</span>'
+    ];
+    let index = 0;
+
+    setInterval(() => {
+      titleElement.style.opacity = '0';
+      setTimeout(() => {
+        index = (index + 1) % titles.length;
+        titleElement.innerHTML = titles[index];
+        titleElement.style.opacity = '1';
+      }, 500);
+    }, 4000);
+  </script>
 </body>
 </html>
